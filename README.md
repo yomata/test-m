@@ -63,6 +63,27 @@ $ TEST_REGION=jp npx playwright test
 ## What I wanted to implement
 - Being prepared for switching region and language, I wanted to seperate the String/text value to be used in the locators
   and verification steps, into a separate file, so that the test works for US/English too.
+- Page Object Model(*)
+   Many people like to use Page Object Model for the test code, and I like it too, so I wanted to implement it but I ran out of time.
+   I chose Playwright this time, but cypress, selenim( and it's variations) are other popular alternatives. Esp the users of cypress may
+   want not to use Page Object Model because Cypress company recommends to use different approach for the test code, called "Application Action Model".
+   So I think there are likes/dislikes for the Page Object Model, Pros and Cons. I will try to pick up some of them.
+   Pros:
+   - Improvedreadability 
+   - Improved maintainablity
+   - (Separation of Concerns) Better Structure  
+   Cons:
+   - Initial time investment(Over-engineering)
+   - Maintenance overhead
+
+## What was challenging(*)
+- Playwright Locator Strategy (Choosing the right locator for the elements)
+  By using the Playwright code generator(event recorder), I could get the locator for the elements, but some of them did not work as intended, this is often the case when using the record/playback type of tools.
+  The best scenario is that we(QA) to ask the developer to add unique identifier(e.g.id, test-id, data-qa attribute, etc) for the elements, so that the test code can be more robust, But it was not doable in this test.
+  That is one of the reason why the submitted code uses several different type of locators, they are not consistent.
+  I wanted to make them consistent, but I ran out of time.
 
 ## Notes
 I spent too much time on debugging, and understanding of the Playwright specific implementation details, so I ran out of time.
+
+(*) The items marked with * were added after the submission deadline.
